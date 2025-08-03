@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            一元的正负
+                + 正号
+                    - 不会改变数值的符号
+                - 负号
+                    - 可以对数值进行符号位取反
+                当我们对非数值类型进行正负运算时，会先将其转换为数值然后再运算
+
+        
+        */
+       let a = -10
+       a = -a
+       let b='123'
+       b=+b //等价于b=Number(b),结果是123
+        console.log(typeof a,a);
+        console.log(typeof b,b);
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

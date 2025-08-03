@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            优化前
+                1.10000 100ms
+                2.100000 9244ms
+            第一次优化（加break）
+                1.10000 9ms
+                2.100000 630ms
+            第二次优化（平方根）
+                1.10000 1ms
+                2.100000 7ms
+                3.1000000 120ms
+        */
+       console.time("质数练习")
+       for (i = 2; i < 1000000; i++) {
+            let flag = true
+                            //平方根
+            for (j = 2; j <= i**.5; j++) {
+                if (i % j === 0) {
+                    flag = false
+                    //进入判断说明i一定不是质数，后续的检查没有执行的必要
+                    break
+                }
+            }
+            if (flag) {
+                //console.log(i)
+            }
+
+        }
+        console.timeEnd("质数练习")
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

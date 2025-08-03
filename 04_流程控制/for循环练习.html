@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            练习:求100以内3的倍数（求有多少个和总和）
+
+        */
+       //方法一
+        /*let count = 0
+        sum = 0
+         for (num = 1; num < 100; num++) {
+            if (num % 3 === 0) {
+                //console.log(num);
+                count++
+                sum += num
+            }  
+        }
+         console.log(`100以内3的倍数有${count}个，`,`它们的总和是${sum}`); */
+        //方法二
+        let count = 0
+        sum = 0
+         for(num=3;num<100;num+=3){
+            count++
+            sum+=num
+         }
+         console.log(`100以内3的倍数有${count}个，`,`它们的总和是${sum}`);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

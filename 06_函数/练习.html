@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* var a = 1
+        function fn() {
+            a = 2//在局部作用域中，如果没有使用var或let声明变量，则变量会自动成为window对象的属性，也就是全局变量
+                // 但是上面已经用var声明了，所以局部的a是改变量的
+            console.log(a);//2
+        }
+        fn()
+        console.log(a);//2 */
+
+
+        //定义形参就相当于在函数中声明了对应的变量，但是没有赋值
+        /* var a = 1
+        function fn(a) {
+            console.log(a);//undefined
+            var a = 2
+            console.log(a);//2
+        }
+        fn()
+        console.log(a);//1 */
+
+        /*  var a = 1
+         function fn(a) {
+             console.log(a);//10
+             var a = 2
+             console.log(a);//2
+         }
+         fn(10)
+         console.log(a);//1 */
+
+        /* var a = 1
+        function fn(a) {
+            console.log(a);//1
+            var a = 2
+            console.log(a);//2
+        }
+        fn(a)
+        console.log(a);//1 */
+        
+
+        console.log(a);//2
+        var a = 1
+        console.log(a);//1
+        function a() {
+            alert(2)
+        }
+        console.log(a);//1
+        var a = 3
+        console.log(a);//3
+        var a = function () {
+            alert(4)
+        }
+        console.log(a);//4
+        var a
+        console.log(a);//4
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

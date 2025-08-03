@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            循环语句
+                - 通过循环语句可以使指定的代码反复执行
+                - js中一共有三种循环语句
+                    while
+                    do-while
+                    for
+                - while语句
+                    语法：
+                        while(条件表达式){
+                            循环体
+                        }
+                执行流程：
+                    while语句在执行时，会先对条件表达式进行判断，
+                        如果结果为true，则执行循环体，执行完毕，继续判断
+                        如果为true，则再次执行循环体，执行完毕，继续判断，如此反复
+                        直到条件表达式的结果为false时，循环结束
+                
+        */
+        //当一个循环的条件表达式恒为true时，这个循环就是一个死循环，会一直执行（慎用）
+        /* while (true) {
+            alert('哈哈')
+        } */
+
+        /* 
+            通常编写一个循环，要有三个条件
+                1.初始化表达式
+                2.条件表达式
+                3.更新表达式
+        
+        */
+        /* //初始化表达式
+        let a = 0
+        //条件表达式
+        while(a < 3){
+            console.log(a);
+            //更新表达式
+            a++   
+        } */
+        let i = 0
+        while (1) {
+            console.log(i);
+            i++
+            if (i >= 5) {
+                break
+            }
+
+        }
+        /* 
+                练习：假设银行存款的年利率为5%，问1000块存多少年可以变成5000块
+        
+        */
+        //创建一个变量表示钱数
+        let money = 1000
+        let year=0
+        //1000存一年是多少？money = 1000*0.05+money
+        while (money < 5000) {
+
+            money = money * 0.05 + money//执行一次就是存一年的钱
+            //money*=1.05
+            year++
+
+        }
+        console.log(`需要存${year}年,`,`最终的钱数为${money}元`);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

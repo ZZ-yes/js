@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            练习：获取用户输入的大于1的整数，然后检查这个数是否是质数，并打印结果
+                质数：一个数如果只能被1和它本身整除，那么这个数就是质数
+                    1既不是质数也不是合数
+        
+        */
+        //以9为例
+        /* let flag=true
+        for(let i=2;i<9;i++){
+            if(9%i===0){
+                //如果执行了就说明他有其他因数，就不是质数
+                flag=false
+            }
+        }
+        if(flag){
+            alert("9是质数")
+        }else{
+            alert("9不是质数")
+        } */
+
+        let num = +prompt("请输入一个数字")
+        //用来记录num的状态，默认为true，num是质数
+        let flag = true
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) {
+                //如果if执行了就说明他有其他因数，就不是质数
+                flag = false
+            }
+        }
+        if (flag) {
+            alert(`${num}是质数`)
+        } else {
+            alert(`${num}不是质数`)
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
