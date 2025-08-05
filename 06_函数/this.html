@@ -12,6 +12,7 @@
                 - this会指向一个对象
                     - this所指向的对象会根据函数调用方式的不同而不同
                         1.以函数形式调用时，this指向的是window
+                        2.以方法的形式调用时，this指向的是调用方法的对象
                 - 通过this可以在方法中引用调用方法的对象
         */
         function fn() {
@@ -19,6 +20,7 @@
             console.log(this);
             
         }
+        fn()
         const obj={name:"孙悟空"}
         obj.test=fn
         const obj2={name:"猪八戒",test:fn}
@@ -26,6 +28,7 @@
         obj.test()//{name:"孙悟空"}
         obj2.test()//{name:"猪八戒",test:fn}
 
+        //为两个对象添加一个方法，可以打印自己的名字
         const obj3={
             name:"沙和尚",
             sayHello:function(){

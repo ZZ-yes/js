@@ -3116,6 +3116,7 @@ const jennie = {
 ​          1.私有化数据
 
 ​            \- 将需要保护的数据设置为私有，只能在类内部使用
+            - 隐藏该隐藏的，开放该开放的，开闭原则
 
 ​          2.提供setter和getter方法来开放对数据的操作
 
@@ -3194,5 +3195,212 @@ class Person {
         p1.setAge(11)
         p1.gender="女"
         console.log(p1.gender);
+```
+
+#### 多态
+
+```
+<script>
+        class Person {
+            constructor(name) {
+                this.name = name
+            }
+        }
+        class Dog {
+            constructor(name) {
+                this.name = name
+            }
+        }
+        const dog = new Dog("旺财")
+        const person = new Person("孙悟空")
+        console.log(dog);
+        console.log(person);
+        
+            /* 多态
+                - 在js中不会检查参数的类型，所以这意味着任何数据都可以作为参数传递
+                - 要调用某个函数，无需指定的类型，只要对象满足某些条件即可
+                - 多态为我们提供了灵活性    
+            */
+
+
+        //定义一个函数，这个函数将接收一个对象作为参数，他可以输入hello并打印对象的name属性
+        function sayHello(obj){
+            // if(obj instanceof Person)
+            console.log("hello,"+obj.name);
+            
+        }
+        sayHello(dog)
+    </script>
+```
+
+
+
+#### 继承
+
+继承
+提取共性，求同存异
+​        \- 可以通过extends关键字来完成继承
+
+​        \- 当一个类继承另一个类时，就相当于另一个类中的代码复制到了当前类中（简单理解）
+
+​        \- 继承发生时，被继承的类称为父类（超类），继承的类称为子类
+
+​        \- 通过继承可以减少代码的重复量，并且可以在不修改一个类的情况下对其进行扩展
+
+​        \- 写代码时应该遵循OCP原则（开闭原则），程序应该对修改关闭，对扩展开放
+
+
+
+​        封装——确保数据的安全性
+
+​        继承——扩展性
+
+​        多态——灵活性
+
+```
+class Animal {
+            constructor(name) {
+                this.name = name
+            }
+            sayHello() {
+                console.log("动物在叫");
+            }
+        }
+        class Dog extends Animal {
+            //在子类中，可以通过创建同名方法来重写父类的方法
+            sayHello() {
+                console.log("汪汪汪");
+            }
+
+
+        }
+        class Cat extends Animal {
+            //重写构造函数
+            constructor(name,age){
+                //重写构造函数时，构造函数的第一行代码必须为super()
+                super(name)//调用父类的构造函数
+                this.age=age
+            }
+            sayHello() {
+                super.sayHello()//调用父类的方法
+                console.log("喵喵喵");
+            }
+
+        }
+        const dog = new Dog("旺财")
+        const cat = new Cat("Tom",3)
+        dog.sayHello()
+        cat.sayHello()
+        console.log(dog);
+        console.log(cat);
+```
+
+#### 对象的结构
+
+对象中存储属性的区域实际有两个：
+
+​          1.对象自身
+
+​            \- 直接通过对象添加的属性，位于对象自身
+
+​            \- 在类中通过x=y的形式来添加的属性，也位于对象自身中
+
+​          2.原型对象（prototype）
+
+​            \- 对象中还有一些内容会存储到其他的对象里（原型对象）
+
+​            \- 在对象中会有一个属性用来存储原型对象，这个属性叫做__proto__
+
+​            \- 原型对象也负责为对象存储属性，
+
+​              当我们访问对象中的属性，会优先访问对象自身的属性，
+
+​                对象自身不包含该属性时，才去原型对象中找
+
+​            \- 会添加到原型对象中的情况
+
+​              1.在类中通过xxx(){}方式添加的方法，位于原型中
+
+​              2.主动向原型中添加的属性或方法
+
+```
+class Person {
+            name = "孙悟空"
+            age = 500
+            /* constructor() {
+                this.gender = "男"
+            } */
+            sayHello() {
+                console.log("hello,我是", this.name);
+
+            }
+        }
+        const p1 = new Person()
+        // p1.address = "花果山"
+        p1.sayHello="hello"
+        console.log(p1.sayHello);
+```
+
+#### 原型对象
+
+访问一个对象的原型对象
+
+​        1.对象.__proto__
+
+​        2.Object.getPrototypeOf(对象)
+
+
+
+​      原型对象中的数据：
+
+​        1.对象中的数据（属性、方法等）
+
+​        2.constructor（对象的构造函数）
+
+​      
+
+​      注意：
+
+​        原型对象也有原型，这样就构成了一条原型链，根据对象的复杂程度不同，原型链的长度也不同
+
+​        p对象的原型链：p对象-->原型-->原型-->null
+
+​        obj对象的原型链: obj对象-->原型-->null
+
+
+
+​        原型链:
+
+​          \- 读取对象属性时,会优先对象自身属性
+
+​            如果对象中有,则使用,没有则去对象的原型中寻找
+
+​            如果原型中有,则使用,没有则去原型的原型中寻找
+
+​            直到找到object对象的原型(object的原型没有原型,为null)
+
+​              如果依然没有找到,则返回undefined
+
+
+
+​        \- 作用域链,是找变量的链,找不到会报错
+
+​        \- 原型链,是找属性的链,找不到会返回undefined
+
+```
+class Person {
+            name = "孙悟空"
+            age = 500
+            sayHello() {
+                console.log("hello,我是", this.name);
+
+            }
+        }
+        const p=new Person()
+        console.log(p.__proto__.__proto__.__proto__);
+        console.log(p.constructor);
+        
+        // console.log(Object.getPrototypeOf(p)===p.__proto__);
+        const obj={}
 ```
 

@@ -45,9 +45,10 @@
             sayHello(){//sayHello:function()
                 console.log(this.name);
                 /* function t(){
-                    console.log("t-->",this);//window
+                    console.log("t-->",this);
                 }
-                t() */
+                t()  //以函数形式调用是window
+                */
                 const t2 = ()=>{
                     console.log("t2-->",this);
                 }

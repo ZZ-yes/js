@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // class Person {
+        //     name = "孙悟空"
+        //     age = 500
+        //     sayHello() {
+        //         console.log("hello,我是", this.name);
+
+        //     }
+        // }
+        // class Dog{
+
+        // }
+        // const p = new Person()
+        // const p2 = new Person()
+        // const d= new Dog()
+        // const d2= new Dog()
+        // //所有的同类型对象它们的原型对象都是同一个
+        // console.log(p.__proto__===p2.__proto__);
+
+        class Person {
+            #name;
+            #age;
+            constructor(name, age) {
+                this.#age = age;
+                this.#name = name;
+            }
+            sayHello() {
+                console.log("haha")
+            }
+        }
+        class yellowpeople extends Person {
+            constructor(name, age) {
+                super(name, age);
+            }
+
+
+        }
+        
+        //1.类（函数）的__proto__指向 function的prototype, function的prototype.__proto__指向object的prototype
+        //2.Person和Object属于父子级关系，遵循一个原则。 子类的.prototype.proto ==父类的.prototype
+        let person1 = new Person("老李", 12)
+        let yellowp1 = new yellowpeople("haha", 20)
+        console.log( Object.prototype)//fun[nai code]
+        // console.log(person1.__proto__)  //{constructor,proto}
+        // console.log(yellowp1.__proto__) // Person {}
+
+        // console.log(yellowp1.__proto__ == yellowpeople.prototype)//true
+        // console.log(yellowp1.__proto__.__proto__)
+        // console.log(yellowpeople.prototype)//{ ,constructor,proto}
+        // console.log(yellowp1.__proto__.__proto__ == Person.prototype)//true
+        // console.log(yellowp1.__proto__.__proto__ == person1.__proto__)//true
+        // console.log(yellowpeople.prototype.__proto__)
+        // console.log(Person.__proto__)//ƒ () { [native code] }
+        // console.log(Person.prototype)
+        // console.log(Person.__proto__.__proto__)
+        // console.log(Object.__proto__)//ƒ () { [native code] }
+        // console.log(Object.prototype)
+        // console.log(Person.__proto__ == Object.prototype)//true
+        // console.log(Person.prototype)   //{ ,constructor,proto}
+        // console.log(Person.prototype == person1.__proto__) //true
+       function fun1(){
+            console.log("嘻嘻你好")
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
